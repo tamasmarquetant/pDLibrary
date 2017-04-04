@@ -1,0 +1,17 @@
+#N canvas 33 112 1133 643 10;
+#X declare -path ./abs;
+#X declare -path ./abs;
+#X obj 533 414 output~;
+#X obj 533 394 +~;
+#X obj 591 394 +~;
+#X obj 100 89 s_particlechamber_abs;
+#X obj 665 420 U_recording;
+#X obj 591 88 s_particlechamber_abs;
+#X connect 1 0 0 0;
+#X connect 1 0 4 0;
+#X connect 2 0 0 1;
+#X connect 2 0 4 1;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 5 0 1 1;
+#X connect 5 1 2 1;

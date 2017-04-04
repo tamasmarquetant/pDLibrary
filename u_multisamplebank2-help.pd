@@ -1,0 +1,130 @@
+#N struct 1587-symarray float x array symbols 1587-sym;
+#N struct 1587-sym symbol name float on;
+#N struct 1589-symarray float x array symbols 1589-sym;
+#N struct 1589-sym symbol name float on;
+#N struct 1591-symarray float x array symbols 1591-sym;
+#N struct 1591-sym symbol name float on;
+#N struct 1644-symarray float x array symbols 1644-sym;
+#N struct 1644-sym symbol name float on;
+#N canvas 62 1152 1343 617 10;
+#X floatatom 723 79 5 0 0 0 - - -;
+#X symbolatom 715 164 10 0 0 0 - - -;
+#X symbolatom 506 419 10 0 0 0 - - -;
+#X obj 506 446 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 525 323 reset;
+#X msg 530 194 notfound.wav 2 \, otherfile 3;
+#X obj 715 185 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 507 163 list append 0;
+#X obj 582 138 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 507 109 openpanel;
+#X msg 507 88 bang;
+#X msg 683 321 dump;
+#X obj 683 424 print;
+#X obj 507 228 list prepend open;
+#X obj 507 251 list trim;
+#X msg 715 54 open filenname.wav 12 \, open filenname.wav 200;
+#X msg 520 303 delete 2;
+#X msg 597 322 size \$1;
+#X floatatom 597 302 5 0 0 0 - - -;
+#N canvas 698 74 582 570 REFERENCE 0;
+#X text 24 124 Inlet 0:;
+#X text 23 463 See also:;
+#X text 24 91 Argument 0: <table prefix \, will be the internal \$0
+if null>;
+#X text 82 154 float: look up the table name stored at index <float>
+;
+#X text 81 173 reset: delete all tables.;
+#X text 80 122 open <filename> <index>: open a file and load it into
+a table called "prefix-index". Index must be a number.;
+#X text 80 222 size <index>: report size of table at <index> in samples
+to 2nd outlet. Will be 0 for a non-existing table \, 1 for an existing
+table without data and greater for an actually loaded sample.;
+#X text 28 286 Inlet 1:;
+#X text 82 286 Internally connected to an [m_symbolarray] that maps
+indices to table names.;
+#X text 24 31 Name: u_multisamplebank2;
+#X text 24 51 Summary: used to load many stereo files into tables.
+;
+#X text 25 340 Description: [u_multisamplebank2] can be used to load
+many stereo files into tables. The tables will be dynamically created
+and filled. They get automatic names that are constructed from the
+first argument and an index number supplied by you. If no first argument
+was supplied \, the internal \$0 variable is used as a prefix. You
+can lookup the names of the available tables by an index number.;
+#X text 81 194 delete <index>: resizes table <index> to 1 and remove
+it from the index-lookup. Saves a bit of memory.;
+#X text 82 463 [u_multisamplebank] [m_symbolarray] [u_samplebank2]
+[s_playtable2] [s_fplaytable2];
+#X text 22 536 Tags: Audio \, Playback;
+#X coords 0 -1 1 1 450 550 1 10 10;
+#X restore 15 43 pd REFERENCE;
+#X obj 15 13 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 139 16 - samplebank for many stereo files;
+#X text 497 42 Example:;
+#X text 672 576 RjDj Library (https://github.com/rjdj/rjlib) - 2011
+;
+#X obj 21 15 u_multisamplebank2;
+#X obj 506 383 u_multisamplebank2 \$0-filename;
+#X obj 715 108 u_multisamplebank2 \$0-filename2;
+#X msg 607 -9 open C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sounds/PPSounds_Notification_03.wav
+0;
+#X obj 666 246 print LIST;
+#X msg 864 343 0 C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sounds/PPSounds_Opponent_Searching_03.wav
+;
+#X obj 845 217 m_symbolarray;
+#X obj 845 188 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X symbolatom 850 262 80 0 0 0 - - -;
+#X obj 845 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 920 241 print ARRAY;
+#X msg 794 186 reset;
+#X msg 794 161 print;
+#X msg 794 211 dump;
+#X obj 864 323 u_show;
+#X obj 1058 111 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 977 136 list prepend 0;
+#X obj 864 412 list prepend open;
+#X msg 824 483 C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sounds/PPSounds_Opponent_Searching_03.wav
+;
+#X obj 824 463 u_show;
+#X connect 0 0 26 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 4 0 25 0;
+#X connect 5 0 13 0;
+#X connect 7 0 13 0;
+#X connect 7 0 28 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 0;
+#X connect 9 0 40 0;
+#X connect 10 0 9 0;
+#X connect 11 0 25 1;
+#X connect 13 0 14 0;
+#X connect 14 0 25 0;
+#X connect 15 0 26 0;
+#X connect 16 0 25 0;
+#X connect 17 0 25 0;
+#X connect 18 0 17 0;
+#X connect 25 0 2 0;
+#X connect 25 1 12 0;
+#X connect 26 0 1 0;
+#X connect 29 0 41 0;
+#X connect 30 0 32 0;
+#X connect 30 0 43 0;
+#X connect 30 1 34 0;
+#X connect 30 1 38 0;
+#X connect 31 0 30 0;
+#X connect 32 0 33 0;
+#X connect 35 0 30 0;
+#X connect 36 0 30 0;
+#X connect 37 0 30 0;
+#X connect 38 0 29 0;
+#X connect 39 0 40 1;
+#X connect 40 0 30 1;
+#X connect 43 0 42 0;

@@ -1,0 +1,87 @@
+#N canvas 190 50 1137 935 10;
+#X msg 19 73 bang;
+#X obj 64 300 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 176 255 symbol /usr/*;
+#X text 54 73 list current directory;
+#X text 160 237 set pattern without no output;
+#X obj 83 298 print;
+#X text 8 49 left/hot inlet gives immediate output using stored path
+;
+#X msg 91 146 symbol ~/*.*;
+#X text 187 197 relative paths work;
+#X msg 102 198 symbol ../*;
+#X text 164 124 drive letters work on ReactOS/Windows;
+#X msg 77 123 symbol C:/*;
+#X text 190 148 all files with a dot in your home;
+#X msg 40 98 symbol %USERPROFILE%/*;
+#X text 203 99 ReactOS/Windows environment variables work;
+#X text 262 218 nested wildcards work on UNIX;
+#X msg 119 219 symbol /var/*/*.log;
+#X text 173 173 patterns default to path that Pd launched from;
+#X text 8 5 Get a listing of files based on a wildcard pattern. On
+UNIX \, it follows glob rules \, on ReactOS/Windows it follows the
+cmd.exe rules.;
+#X msg 97 173 symbol *.pd;
+#X msg 657 163 symbol C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/*.wav
+;
+#X obj 602 348 u_cocollect;
+#X msg 619 398 C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/deutsch_singing_dry.wav
+0 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/deutsch_singing_impulse.wav
+1 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drawer01_02_twist.wav
+2 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drawer01_02_twist_02.wav
+3 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drone_audio-features-harmonic-tttwist.wav.wav
+4 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drone_audio-features-notification.wav.wav
+5 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drone_double_audio-features-harmonic-tttwist.wav.wav
+6 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/drone_stott_audio-features-trash-project.wav.wav
+7 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/flying_objects_UIPockets_01.wav
+8 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/flying_objects_UIPockets_01.wav.wav
+9 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/flying_objects_UIPockets_02.wav.wav
+10 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/flying_rhythm_szakado_eso_flyingFish.wav
+11 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/FM_swipes.wav
+12 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/FM_swipes2.wav
+13 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/harmonic_twist_01.wav
+14 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/melody_au_feat_Ethno-Cenote 2.wav.wav
+15 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/MetalSlide.wav
+16 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/pull_wind_tear_slidingpitch_high_twist.wav
+17 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_audio_feat_ClickPeace01.wav.wav
+18 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_audio_feat_flying_objects_UIPockets_01.wav
+19 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_audio_pitchdelay_UIPockets_01.wav
+20 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_noise__audio_feat__BreakingBad Project_Freeze5.wav.wav
+21 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_noise__fly-obj__harmonic-tttwist-drawer.wav.wav
+22 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/rhythm_noise__fly-obj__harmonic-tttwist-drawer02.wav.wav
+23 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/Rites_grain_ordered_szeknyikorgas.wav
+24 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/Star_01_pitchEnv-edit.wav
+25 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/Star_01_pitchheight.wav
+26 \, C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings/Switch2UI_twist.wav
+27 \,;
+#X obj 744 324 list append 0;
+#X obj 735 264 t a b;
+#X msg 814 262 0;
+#X obj 670 223 t a b b;
+#X obj 796 290 f;
+#X obj 826 290 + 1;
+#X obj 83 277 hcs/folder_list /*;
+#X connect 0 0 29 0;
+#X connect 2 0 29 1;
+#X connect 7 0 29 0;
+#X connect 9 0 29 0;
+#X connect 11 0 29 0;
+#X connect 13 0 29 0;
+#X connect 16 0 29 0;
+#X connect 19 0 29 0;
+#X connect 20 0 26 0;
+#X connect 21 0 22 0;
+#X connect 23 0 21 0;
+#X connect 24 0 23 0;
+#X connect 24 1 27 0;
+#X connect 25 0 27 1;
+#X connect 26 0 29 0;
+#X connect 26 1 25 0;
+#X connect 26 2 21 1;
+#X connect 27 0 23 1;
+#X connect 27 0 28 0;
+#X connect 28 0 27 1;
+#X connect 29 0 1 0;
+#X connect 29 0 5 0;
+#X connect 29 0 24 0;

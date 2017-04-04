@@ -1,0 +1,414 @@
+#N canvas 193 110 1220 594 10;
+#X obj 364 235 e_circlepan;
+#X obj 307 211 phasor~ 0.1;
+#X obj 417 210 phasor~ 0.22;
+#X obj 423 96 sig~ 0.1;
+#X obj 184 356 polygate~ 2 3000;
+#X obj 314 356 polygate~ 2 3000;
+#X floatatom 81 306 4 0 10 0 - - -, f 4;
+#X msg 81 329 choice \$1;
+#X obj 178 106 r \$0-transition-lenght;
+#N canvas 392 321 271 201 move-to-value 0;
+#X obj 14 57 line;
+#X obj 19 -21 t b f b;
+#X obj 51 -2 f 500;
+#X msg 14 37 \$1 \$2;
+#X obj 14 17 pack f f;
+#X obj 123 -50 inlet transition_time;
+#X obj 19 -50 inlet target_value;
+#X obj 15 100 outlet current_value;
+#X connect 0 0 7 0;
+#X connect 1 1 4 0;
+#X connect 1 2 2 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 1;
+#X connect 6 0 1 0;
+#X restore 81 126 pd move-to-value;
+#X obj 185 -64 inlet~ L;
+#X obj 314 -64 inlet~ R;
+#X obj 184 406 outlet~ L;
+#X obj 313 406 outlet~ R;
+#X obj 244 235 e_circlepan L;
+#X obj 247 -64 inlet~ L/R;
+#X obj 81 88 m_scale 0 1 1 2.5;
+#X obj 82 21 nbx 4 20 -1e+037 1e+037 0 0 empty empty L_Speed_ 67 10
+0 15 -80811 -1 -1 0.15 256;
+#X obj 82 44 nbx 4 20 0 1 0 0 empty empty L_Phase_ 67 10 0 15 -262144
+-1 -1 0.1 256;
+#X obj 216 21 nbx 4 20 -1e+037 1e+037 0 0 empty empty R 0 10 0 15 -80811
+-1 -1 0.15 256;
+#X obj 543 96 sig~ 0.1;
+#X obj 439 34 spigot;
+#X obj 466 14 r \$0-linked;
+#X obj 569 34 spigot;
+#X obj 596 14 r \$0-linked;
+#N canvas 392 321 271 163 move-to-value 0;
+#X obj 14 57 line;
+#X obj 19 -21 t b f b;
+#X msg 14 37 \$1 \$2;
+#X obj 14 17 pack f f;
+#X obj 123 -50 inlet transition_time;
+#X obj 19 -50 inlet target_value;
+#X obj 15 100 outlet current_value;
+#X obj 51 -2 f 2000;
+#X connect 0 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 1;
+#X connect 5 0 1 0;
+#X connect 7 0 3 1;
+#X restore 441 56 pd move-to-value 2000;
+#N canvas 392 321 275 182 move-to-value 0;
+#X obj 14 57 line;
+#X obj 19 -21 t b f b;
+#X msg 14 37 \$1 \$2;
+#X obj 14 17 pack f f;
+#X obj 123 -50 inlet transition_time;
+#X obj 19 -50 inlet target_value;
+#X obj 15 100 outlet current_value;
+#X obj 51 -2 f 2000;
+#X connect 0 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 1;
+#X connect 5 0 1 0;
+#X connect 7 0 3 1;
+#X restore 571 56 pd move-to-value 2000;
+#X msg 157 -113 set \$1;
+#X msg 297 -113 set \$1;
+#X obj 216 45 nbx 4 20 0 1 0 0 empty empty R 0 10 0 15 -262144 -1 -1
+0.1 256;
+#X obj -197 -47 s \$0-left_phase;
+#X obj -76 -47 s \$0-right_phase;
+#X obj -197 -12 r \$0-left_phase;
+#X obj -77 -12 r \$0-right_phase;
+#X obj -181 34 spigot;
+#X obj -154 14 r \$0-linked;
+#X obj -51 34 spigot;
+#X obj -24 14 r \$0-linked;
+#X obj -37 77 s \$0-left_phase_FB;
+#X obj -167 76 s \$0-right_phase_FB;
+#X obj -206 -134 r \$0-left_phase_FB;
+#X obj -84 -133 r \$0-right_phase_FB;
+#N canvas 392 321 271 163 move-to-value 0;
+#X obj 14 57 line;
+#X obj 19 -21 t b f b;
+#X msg 14 37 \$1 \$2;
+#X obj 14 17 pack f f;
+#X obj 123 -50 inlet transition_time;
+#X obj 19 -50 inlet target_value;
+#X obj 15 100 outlet current_value;
+#X obj 51 -2 f 2000;
+#X connect 0 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 1;
+#X connect 5 0 1 0;
+#X connect 7 0 3 1;
+#X restore -179 56 pd move-to-value 2000;
+#N canvas 392 321 275 182 move-to-value 0;
+#X obj 14 57 line;
+#X obj 19 -21 t b f b;
+#X msg 14 37 \$1 \$2;
+#X obj 14 17 pack f f;
+#X obj 123 -50 inlet transition_time;
+#X obj 19 -50 inlet target_value;
+#X obj 15 100 outlet current_value;
+#X obj 51 -2 f 2000;
+#X connect 0 0 6 0;
+#X connect 1 1 3 0;
+#X connect 1 2 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 1;
+#X connect 5 0 1 0;
+#X connect 7 0 3 1;
+#X restore -49 56 pd move-to-value 2000;
+#X msg 97 -93 set \$1;
+#X msg 237 -93 set \$1;
+#X obj 423 -47 s \$0-left_speed;
+#X obj 544 -47 s \$0-right_speed;
+#X obj 543 -12 r \$0-right_speed;
+#X obj 423 -12 r \$0-left_speed;
+#X obj 453 76 s \$0-right_speed_FB;
+#X obj 583 77 s \$0-left_speed_FB;
+#X obj 536 -133 r \$0-right_speed_FB;
+#X obj 414 -134 r \$0-left_speed_FB;
+#X obj -197 96 s \$0-to-left-phase;
+#X obj -77 96 s \$0-to-right-phase;
+#X obj 493 186 r \$0-to-right-phase;
+#X obj 373 186 r \$0-to-left-phase;
+#N canvas 375 1341 562 340 shuff 0;
+#X obj 123 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 19 111 hradio 15 1 0 6 empty empty empty 0 -2 0 8 -262144 -1
+-1 5;
+#X msg 123 81 set \$1;
+#X obj 185 168 sel 0;
+#X obj 133 110 inlet;
+#X text 11 260 (C) 2006 João Pais - jmmmpais@googlemail.com;
+#N canvas 0 50 426 446 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 27 jmmmpais@googlemail.com;
+#X text 8 7 Copyright 2006 \, João Pais;
+#X restore 14 298 pd license;
+#X obj 175 111 init \$1;
+#X text 389 100 Inlets;
+#X text 389 120 - Bang / Number;
+#X text 389 50 Arguments;
+#X text 389 70 - DSP state (1/0);
+#X obj 13 131 bang;
+#X text 11 10 [dsp01] - DSP switch;
+#X text 15 277 Adapted from H-C Steiner's dsp abstraction;
+#X obj 33 191 outlet;
+#X text 389 200 GUI;
+#X text 389 220 - Click on it;
+#X text 389 150 Outlets;
+#X text 389 170 - Number (0 / x);
+#X obj 123 246 s \$0-transition-mode;
+#X obj 185 228 s \$0-circo;
+#X msg 186 188 label CIRCLE_PAN_OFF \, color 5 22;
+#X msg 212 208 label CIRCLE_PAN_ON \, color 22 5;
+#X obj 14 111 cnv 15 100 15 empty \$0-circo CIRCLE_PAN_OFF 1 8 0 12
+-262131 -1 0;
+#X obj 123 41 r \$0-circo-mode;
+#X connect 0 0 3 0;
+#X connect 0 0 15 0;
+#X connect 1 0 12 0;
+#X connect 2 0 0 0;
+#X connect 3 0 22 0;
+#X connect 3 1 23 0;
+#X connect 4 0 0 0;
+#X connect 7 0 0 0;
+#X connect 12 0 0 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 25 0 2 0;
+#X coords 0 -1 1 1 102 17 2 13 110;
+#X restore 82 66 pd shuff;
+#N canvas 200 1335 562 340 shuff 0;
+#X obj 83 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 14 111 hradio 15 1 0 3 empty empty empty 0 -2 0 8 -262144 -1
+-1 1;
+#X msg 83 81 set \$1;
+#X obj 145 168 sel 0;
+#X obj 93 110 inlet;
+#X text 11 260 (C) 2006 João Pais - jmmmpais@googlemail.com;
+#N canvas 0 50 426 446 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 27 jmmmpais@googlemail.com;
+#X text 8 7 Copyright 2006 \, João Pais;
+#X restore 14 298 pd license;
+#X obj 135 111 init \$1;
+#X text 469 100 Inlets;
+#X text 469 120 - Bang / Number;
+#X text 469 50 Arguments;
+#X text 469 70 - DSP state (1/0);
+#X obj 13 131 bang;
+#X text 11 10 [dsp01] - DSP switch;
+#X text 15 277 Adapted from H-C Steiner's dsp abstraction;
+#X obj 33 191 outlet;
+#X text 349 200 GUI;
+#X text 469 220 - Click on it;
+#X text 469 150 Outlets;
+#X text 469 170 - Number (0 / x);
+#X obj 83 41 r \$0-shuff-set;
+#X obj 14 111 cnv 15 50 15 empty \$0-circ-link LNK_ON 1 8 0 12 -1 -258318
+0;
+#X obj 145 228 s \$0-circ-link;
+#X obj 83 246 s \$0-linked;
+#X msg 354 278 label LNK_OFF \, color 13 22;
+#X msg 382 298 label LNK_ON \, color 22 0;
+#X msg 144 188 label LNK_OFF \, color 13 22 -1.67772e+007;
+#X msg 172 208 label LNK_ON \, color 22 0 -1.67166e+007;
+#X connect 0 0 3 0;
+#X connect 0 0 15 0;
+#X connect 0 0 23 0;
+#X connect 1 0 12 0;
+#X connect 2 0 0 0;
+#X connect 3 0 26 0;
+#X connect 3 1 27 0;
+#X connect 4 0 0 0;
+#X connect 7 0 0 0;
+#X connect 12 0 0 0;
+#X connect 26 0 22 0;
+#X connect 27 0 22 0;
+#X coords 0 -1 1 1 51 17 2 13 110;
+#X restore 230 67 pd shuff;
+#X obj 781 9 loadbang;
+#X obj 781 34 t b b b b;
+#X msg 809 96 0.1;
+#X msg 795 76 0.1;
+#X msg 823 116 0.15;
+#X obj 833 142 s \$0-left_speed_FB;
+#X obj 823 163 s \$0-right_speed_FB;
+#X obj 795 204 s \$0-left_phase_FB;
+#X obj 809 184 s \$0-right_phase_FB;
+#X msg 781 56 1;
+#X obj 781 224 s \$0-circo-mode;
+#X obj 728 -131 inlet;
+#X obj 728 -15 outlet;
+#X obj 728 -104 route save;
+#N canvas 571 1298 445 352 dispatchers 0;
+#X obj 83 18 inlet;
+#X obj 83 50 u_dispatch \$0 left_phase;
+#X obj 83 68 u_dispatch \$0 right_phase;
+#X obj 83 86 u_dispatch \$0 left_speed;
+#X obj 83 104 u_dispatch \$0 right_speed;
+#X obj 83 123 u_dispatch \$0 left_phase_FB;
+#X obj 83 142 u_dispatch \$0 right_phase_FB;
+#X obj 83 161 u_dispatch \$0 left_speed_FB;
+#X obj 83 179 u_dispatch \$0 right_speed_FB;
+#X obj 83 199 u_dispatch \$0 circo-mode;
+#X obj 83 217 u_dispatch \$0 linked;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X restore 795 -78 pd dispatchers;
+#X obj 728 -54 u_loader e_str_cycle_pan-\$1 \$0;
+#X obj 433 117 s \$0-left_speed_FB;
+#X obj 563 116 s \$0-right_speed_FB;
+#X obj -187 117 s \$0-left_phase_FB;
+#X obj -67 116 s \$0-right_phase_FB;
+#X text -206 165 essentially an extension of the rJdJ e_circlepan object
+by receiving 3 channels (L \, C-mono \, R) of audio and adding a GUI
+;
+#X connect 0 0 4 1;
+#X connect 0 1 5 1;
+#X connect 1 0 14 1;
+#X connect 2 0 0 1;
+#X connect 3 0 1 0;
+#X connect 4 0 12 0;
+#X connect 5 0 13 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 9 1;
+#X connect 9 0 6 0;
+#X connect 10 0 4 0;
+#X connect 10 0 14 0;
+#X connect 11 0 5 0;
+#X connect 11 0 0 0;
+#X connect 14 0 4 1;
+#X connect 14 1 5 1;
+#X connect 15 0 4 0;
+#X connect 15 0 5 0;
+#X connect 16 0 9 0;
+#X connect 17 0 46 0;
+#X connect 18 0 30 0;
+#X connect 19 0 47 0;
+#X connect 20 0 2 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 1;
+#X connect 23 0 26 0;
+#X connect 24 0 23 1;
+#X connect 25 0 50 0;
+#X connect 26 0 51 0;
+#X connect 27 0 17 0;
+#X connect 28 0 19 0;
+#X connect 29 0 31 0;
+#X connect 32 0 34 0;
+#X connect 32 0 54 0;
+#X connect 32 0 78 0;
+#X connect 33 0 36 0;
+#X connect 33 0 55 0;
+#X connect 33 0 79 0;
+#X connect 34 0 42 0;
+#X connect 35 0 34 1;
+#X connect 36 0 43 0;
+#X connect 37 0 36 1;
+#X connect 40 0 44 0;
+#X connect 40 0 54 0;
+#X connect 41 0 45 0;
+#X connect 41 0 55 0;
+#X connect 42 0 39 0;
+#X connect 43 0 38 0;
+#X connect 44 0 18 0;
+#X connect 45 0 29 0;
+#X connect 48 0 20 0;
+#X connect 48 0 23 0;
+#X connect 48 0 77 0;
+#X connect 49 0 3 0;
+#X connect 49 0 21 0;
+#X connect 49 0 76 0;
+#X connect 52 0 20 0;
+#X connect 52 0 28 0;
+#X connect 53 0 3 0;
+#X connect 53 0 27 0;
+#X connect 56 0 2 1;
+#X connect 57 0 1 1;
+#X connect 58 0 16 0;
+#X connect 60 0 61 0;
+#X connect 61 0 69 0;
+#X connect 61 1 63 0;
+#X connect 61 2 62 0;
+#X connect 61 3 64 0;
+#X connect 62 0 68 0;
+#X connect 63 0 67 0;
+#X connect 64 0 65 0;
+#X connect 64 0 66 0;
+#X connect 69 0 70 0;
+#X connect 69 0 58 0;
+#X connect 71 0 73 0;
+#X connect 73 0 75 0;
+#X connect 73 1 74 0;
+#X connect 75 0 72 0;
+#X coords 0 -1 1 1 205 85 1 80 0;

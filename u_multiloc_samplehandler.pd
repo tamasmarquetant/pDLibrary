@@ -1,0 +1,419 @@
+#N struct 1301-symarray float x array symbols 1301-sym;
+#N struct 1301-sym symbol name float on;
+#N struct 1302-symarray float x array symbols 1302-sym;
+#N struct 1302-sym symbol name float on;
+#N canvas 0 50 1604 832 10;
+#X msg 632 291 dump;
+#X floatatom 642 311 5 0 0 1 Lookup - -, f 5;
+#X symbolatom 502 635 20 0 0 0 - - -, f 20;
+#X text 669 291 Dump the current mapping to the second outlet.;
+#X msg 563 550 32 1298-filename-32;
+#X obj 563 529 u_show;
+#X msg 714 551 dump;
+#X msg 704 600 numdump;
+#X obj 695 717 bng 15 250 50 0 empty empty done 17 7 1 10 -262144 -1
+-1;
+#X obj 666 749 u_cocollect;
+#X msg 666 774;
+#X msg 721 732 clear;
+#X msg 714 620 clear;
+#X obj 666 700 u_dumpfile;
+#X msg 675 413 reset;
+#X obj 607 170 list append 0;
+#X obj 607 150 openpanel;
+#X obj 607 228 list prepend open;
+#X obj 607 247 list trim;
+#X text 732 392 Delete current mapping at the second index;
+#X text 722 412 reset all current mapping;
+#X obj 694 655 t a b;
+#X msg 501 311 dump;
+#X msg 541 344 bang;
+#X obj 502 289 t b a b;
+#X text 952 31 'openmapfile' message loads and opens a map file from
+/*PATH*/ named <sample-file-name> or "index.txt" if 3rd element not
+specified.;
+#X text 952 66 absolute /*PATH*/ must be given \, relative path won't
+work;
+#X obj 682 151 nbx 5 14 -1e+037 1e+037 0 0 empty \$0-loadslot empty
+0 -8 0 10 -262144 -1 -1 0 256;
+#X text 865 127 add new sample files to the internal table-array by
+using the 'openfile' dialogue and providing an '<index>' as a second
+element of the message or...;
+#X text 983 203 by providing a list of messages containing /*PATH*/<sample-file-name>
+and '<index>' pairs separated by columns prepended by 'open' control
+message. Already existing '<index>' will be overwritten.;
+#X msg 594 488 C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sounds/PPSounds_Notification_03.wav
+;
+#X obj 594 467 u_show;
+#X floatatom 532 610 5 0 0 0 - - -, f 5;
+#X obj 336 69 bng 30 250 50 0 empty empty RES 6 15 0 10 -260097 -1
+-1;
+#X obj 1011 396 r \$0-reset-db;
+#X obj 791 603 r \$0-reset-writer;
+#X obj 541 368 s \$0-reset-writer;
+#X msg 620 208 C:/...././notfound.wav 20 \, C:/...././otherfile 22
+;
+#X msg 625 647 add \$2 \$1;
+#X obj 1043 423 r \$0-mess;
+#X msg 792 644 write C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sample_map_file.txt
+;
+#X obj 694 578 t a b;
+#X obj 366 69 bng 30 250 50 0 empty empty OPN 6 15 0 10 -4034 -1 -1
+;
+#X obj 336 99 bng 30 250 50 0 empty empty MAP 6 15 0 10 -257985 -1
+-1;
+#X obj 467 169 openpanel;
+#X obj 467 147 u_load_sound_samples;
+#X obj 467 190 list prepend openmap;
+#X obj 467 211 list trim;
+#X obj 428 99 bng 30 250 50 0 empty empty WRT 6 15 0 10 -258113 -1
+-1;
+#X obj 307 210 openpanel;
+#X obj 307 291 list trim;
+#X obj 307 270 list prepend write;
+#X obj 1161 356 r \$0-reset-db;
+#X obj 1161 388 s \$0-reset-writer;
+#X obj 397 69 nbx 3 30 -1e+037 1e+037 0 0 \$0-loadslot empty empty
+0 -8 0 15 -228856 -1 -1 0 256;
+#X obj -18 4 inlet;
+#X obj 153 84 s \$0-to_multiloc;
+#X obj 372 423 r \$0-to_multiloc;
+#X obj -18 209 send;
+#X obj 412 483 s \$0-tablename;
+#X obj -18 185 r \$0-tablename;
+#X obj -18 163 s \$0-to_multiloc;
+#X symbolatom -18 408 30 0 0 0 - - -, f 30;
+#X symbolatom 37 210 10 0 0 0 - - -, f 10;
+#X obj -18 139 unpack f s;
+#X obj -18 387 r \$0-aaa;
+#X obj 502 440 u_multiloc_samplekit2;
+#X obj 467 127 spigot;
+#N canvas 375 1341 562 340 shuff 0;
+#X obj 83 151 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 14 111 hradio 15 1 0 3 empty empty empty 0 -2 0 8 -262144 -1
+-1 2;
+#X msg 83 81 set \$1;
+#X obj 145 168 sel 0;
+#X obj 93 110 inlet;
+#X text 11 260 (C) 2006 João Pais - jmmmpais@googlemail.com;
+#N canvas 0 50 426 446 license 0;
+#X text 8 47 All rights reserved.;
+#X text 8 227 The names of its contributors may not be used to endorse
+or promote products derived from this software without specific prior
+written permission.;
+#X text 8 87 Redistribution and use in source and binary forms \, with
+or without modification \, are permitted provided that the following
+conditions are met:;
+#X text 8 127 Redistributions of source code must retain the above
+copyright notice \, this list of conditions and the following disclaimer.
+;
+#X text 8 297 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES \, INCLUDING
+\, BUT NOT LIMITED TO \, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT \, INDIRECT
+\, INCIDENTAL \, SPECIAL \, EXEMPLARY \, OR CONSEQUENTIAL DAMAGES (INCLUDING
+\, BUT NOT LIMITED TO \, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES
+;
+#X text 8 167 Redistributions in binary form must reproduce the above
+copyright notice \, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the distribution.
+;
+#X text 8 27 jmmmpais@googlemail.com;
+#X text 8 7 Copyright 2006 \, João Pais;
+#X restore 14 298 pd license;
+#X obj 135 111 init \$1;
+#X text 349 100 Inlets;
+#X text 349 120 - Bang / Number;
+#X text 349 50 Arguments;
+#X text 349 70 - DSP state (1/0);
+#X obj 13 131 bang;
+#X text 11 10 [dsp01] - DSP switch;
+#X text 15 277 Adapted from H-C Steiner's dsp abstraction;
+#X obj 33 191 outlet;
+#X text 349 200 GUI;
+#X text 349 220 - Click on it;
+#X text 349 150 Outlets;
+#X text 349 170 - Number (0 / x);
+#X msg 172 208 label ARM_ON \, color 16 22;
+#X msg 144 188 label ARM_OFF \, color 13 22;
+#X obj 145 228 s \$0-smpl-arm;
+#X obj 14 111 cnv 15 50 15 empty \$0-smpl-arm ARM_ON 1 8 0 12 -24198
+-1 0;
+#X obj 83 41 r \$0-arm;
+#X obj 83 61 t a a;
+#X obj 83 242 s \$0-arm;
+#X connect 0 0 3 0;
+#X connect 0 0 15 0;
+#X connect 0 0 26 0;
+#X connect 1 0 12 0;
+#X connect 2 0 0 0;
+#X connect 3 0 21 0;
+#X connect 3 1 20 0;
+#X connect 4 0 0 0;
+#X connect 7 0 0 0;
+#X connect 12 0 0 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 2 0;
+#X connect 25 1 3 0;
+#X coords 0 -1 1 1 51 17 1 13 110;
+#X restore 397 51 pd shuff;
+#X obj 307 167 spigot;
+#X obj 607 88 spigot;
+#X obj 230 128 s \$0-reset-db;
+#X obj 230 108 spigot;
+#X obj -18 62 route gettable getrandomtable;
+#X obj 82 309 t b s;
+#X obj 82 387 send;
+#X symbolatom 137 388 10 0 0 0 - - -, f 10;
+#X msg 82 336 dump;
+#N canvas 7 1167 450 300 get-random-table 0;
+#X obj 98 113 unpack f s;
+#X obj 48 45 t b a b;
+#X obj 98 133 list prepend;
+#X obj 197 133 t a;
+#X obj 66 158 list;
+#X obj 67 65 s \$0-mess;
+#X symbolatom 66 224 30 0 0 0 - - -, f 30;
+#X obj 66 201 symbol;
+#N canvas 884 1545 450 300 get-random-table-name 0;
+#X obj 179 58 cyclone/zl len;
+#X floatatom 179 79 5 0 0 0 - - -, f 5;
+#X obj 179 129 random;
+#X obj 179 99 t b f;
+#X floatatom 179 175 5 0 0 0 - - -, f 5;
+#X obj 96 197 cyclone/zl nth 3;
+#X obj 96 38 t l b l;
+#X obj 179 152 + 1;
+#X obj 96 8 inlet list;
+#X obj 96 228 outlet table-name;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 4 0 5 1;
+#X connect 5 0 9 0;
+#X connect 6 0 5 0;
+#X connect 6 2 0 0;
+#X connect 7 0 4 0;
+#X connect 8 0 6 0;
+#X restore 66 178 pd get-random-table-name;
+#X text 62 88 get random loaded table name;
+#X obj 48 25 inlet;
+#X obj 52 253 outlet;
+#X obj 145 65 r \$0-table-names-dump;
+#X connect 0 1 2 0;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 1 2 2 1;
+#X connect 1 2 4 1;
+#X connect 2 0 3 0;
+#X connect 2 0 4 1;
+#X connect 3 0 2 1;
+#X connect 4 0 8 0;
+#X connect 7 0 6 0;
+#X connect 7 0 11 0;
+#X connect 8 0 7 0;
+#X connect 10 0 1 0;
+#X connect 12 0 0 0;
+#X restore 82 359 pd get-random-table;
+#X obj 82 288 symbol;
+#X obj 502 3 inlet mapfile;
+#X obj 928 586 r \$0-save-to-file;
+#X obj 928 609 list;
+#X obj 509 267 s \$0-save-to-file;
+#X msg 670 393 delete 1;
+#X obj 1342 11 inlet;
+#X obj 1342 117 outlet;
+#X obj 1342 38 route save;
+#N canvas 356 244 686 767 dispatchers 0;
+#X obj 83 18 inlet;
+#X obj 83 69 u_dispatch \$0 arm;
+#X obj 83 46 u_dispatch \$0 read-file;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 1389 64 pd dispatchers;
+#X obj 1342 88 u_loader u_multiloc_samplehandler-\$1 \$0;
+#X obj 1074 766 s \$0-sample-coll;
+#X obj 366 99 bng 30 250 50 0 empty empty LDDFM 0 15 0 10 -232576 -1
+-1;
+#X obj 367 147 spigot;
+#X obj 367 167 s \$0-load;
+#N canvas 303 288 614 486 load-saved-state 0;
+#X obj 74 16 r \$0-sample-coll;
+#X obj 121 94 s \$0-reset-db;
+#X obj 94 35 r \$0-load;
+#X obj 138 55 loadbang;
+#X obj 94 72 t b b;
+#X msg 74 118;
+#X obj 24 403 outlet;
+#X connect 0 0 5 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 1349 196 pd load-saved-state;
+#X obj 397 99 bng 30 250 50 0 empty empty COLL 6 15 0 10 -261234 -1
+-1;
+#X obj 397 227 spigot;
+#X obj 397 247 s \$0-coll;
+#X obj 1171 537 t b b;
+#X obj 1171 517 r \$0-coll;
+#X obj 1191 563 s \$0-reset-window;
+#X obj 1285 356 r \$0-reset-writer;
+#X obj 1285 390 s \$0-reset-window;
+#X obj 791 715 r \$0-reset-window;
+#X obj 1414 518 u_dispatch \$0 read-file;
+#X msg 512 26 openmapfile C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sample_map_file.txt
+;
+#X msg 928 627 set write \$2;
+#X obj 1194 623 s \$0-sample-load-file;
+#N canvas 326 384 635 417 load-default-map 0;
+#X obj 124 86 r \$0-sample-load-file;
+#X obj 103 14 r \$0-load;
+#X obj 130 62 s \$0-reset-db;
+#X obj 103 40 t b b;
+#X msg 113 148 set \$1 \$2;
+#X msg 103 248 openmapfile C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/pd/Scenes/flying_objects_drift_PROJECT/sample_map_file.txt
+;
+#X obj 103 355 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X restore 1349 222 pd load-default-map;
+#N canvas 135 604 450 300 init 0;
+#X obj 103 33 loadbang;
+#X msg 130 94 1;
+#X obj 130 114 s \$0-arm;
+#X obj 103 62 t b b;
+#X obj 103 136 pipe 2000;
+#X obj 177 33 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 103 169 s \$0-load;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 3 1 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X restore -8 467 pd init;
+#X obj 502 238 zexy/nop;
+#X obj 411 571 s \$0-table-names-dump;
+#X obj 607 108 u_load_sound_samples;
+#X obj 307 188 u_load_sound_samples;
+#X obj 116 130 print PRINTPOOO;
+#X obj 116 160 print PRINTPURE;
+#X obj -18 30 list trim;
+#X connect 0 0 66 0;
+#X connect 1 0 66 0;
+#X connect 5 0 4 0;
+#X connect 6 0 41 0;
+#X connect 7 0 13 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 9 0 90 0;
+#X connect 11 0 9 1;
+#X connect 12 0 13 0;
+#X connect 13 0 9 0;
+#X connect 13 1 8 0;
+#X connect 14 0 66 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 24 0;
+#X connect 21 0 13 0;
+#X connect 21 1 11 0;
+#X connect 22 0 66 0;
+#X connect 23 0 36 0;
+#X connect 24 0 22 0;
+#X connect 24 1 66 0;
+#X connect 24 2 23 0;
+#X connect 27 0 15 1;
+#X connect 31 0 30 0;
+#X connect 33 0 72 0;
+#X connect 34 0 14 0;
+#X connect 35 0 12 0;
+#X connect 37 0 17 0;
+#X connect 38 0 13 0;
+#X connect 39 0 66 0;
+#X connect 40 0 13 0;
+#X connect 41 0 13 0;
+#X connect 41 1 11 0;
+#X connect 42 0 70 0;
+#X connect 43 0 67 0;
+#X connect 44 0 46 0;
+#X connect 45 0 44 0;
+#X connect 46 0 47 0;
+#X connect 47 0 24 0;
+#X connect 48 0 69 0;
+#X connect 49 0 51 0;
+#X connect 50 0 13 0;
+#X connect 51 0 50 0;
+#X connect 52 0 53 0;
+#X connect 55 0 116 0;
+#X connect 57 0 66 0;
+#X connect 60 0 58 0;
+#X connect 64 0 61 0;
+#X connect 64 1 58 1;
+#X connect 64 1 63 0;
+#X connect 65 0 62 0;
+#X connect 66 0 2 0;
+#X connect 66 0 59 0;
+#X connect 66 1 32 0;
+#X connect 66 2 5 0;
+#X connect 66 2 111 0;
+#X connect 66 3 31 0;
+#X connect 66 4 38 0;
+#X connect 67 0 45 0;
+#X connect 68 0 67 1;
+#X connect 68 0 70 1;
+#X connect 68 0 69 1;
+#X connect 68 0 72 1;
+#X connect 68 0 92 1;
+#X connect 68 0 96 1;
+#X connect 69 0 113 0;
+#X connect 70 0 112 0;
+#X connect 72 0 71 0;
+#X connect 73 0 64 0;
+#X connect 73 1 79 0;
+#X connect 73 1 115 0;
+#X connect 73 2 56 0;
+#X connect 74 0 77 0;
+#X connect 74 1 75 1;
+#X connect 74 1 76 0;
+#X connect 77 0 78 0;
+#X connect 78 0 75 0;
+#X connect 79 0 74 0;
+#X connect 80 0 110 0;
+#X connect 81 0 82 0;
+#X connect 82 0 106 0;
+#X connect 82 0 107 0;
+#X connect 84 0 66 0;
+#X connect 85 0 87 0;
+#X connect 87 0 89 0;
+#X connect 87 1 88 0;
+#X connect 89 0 86 0;
+#X connect 91 0 92 0;
+#X connect 92 0 93 0;
+#X connect 95 0 96 0;
+#X connect 96 0 97 0;
+#X connect 98 0 6 0;
+#X connect 98 1 100 0;
+#X connect 99 0 98 0;
+#X connect 101 0 102 0;
+#X connect 103 0 11 0;
+#X connect 105 0 110 0;
+#X connect 106 0 40 0;
+#X connect 108 0 110 0;
+#X connect 110 0 83 0;
+#X connect 110 0 24 0;
+#X connect 112 0 16 0;
+#X connect 113 0 49 0;
+#X connect 116 0 73 0;
+#X coords 0 -1 1 1 125 80 2 335 50;

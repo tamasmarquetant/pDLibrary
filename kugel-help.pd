@@ -1,0 +1,64 @@
+#N canvas 672 0 756 628 10;
+#N canvas 938 451 716 411 several-search-terms 0;
+#X msg -1257 180 \, zero one 2 three \, 0 1 2 3 \, 2 3 4 5;
+#X msg -1492 21 zero one 2 three \, 0 1 2 3 \, 2 3 4 5;
+#X msg -1257 332 \, 0 1 2 3 \, 2 3 4 5;
+#X obj -1296 115 t b b a;
+#X msg -1241 236 3;
+#X obj -1241 210 show;
+#X msg -1242 19 2;
+#X msg -1140 19 3;
+#X text -1462 1 lists.................including both this.........and
+that;
+#X text -1106 1 (bang first the search terms \, then the lists-message)
+;
+#X text -1143 162 lists including "this";
+#X text -1160 310 lists including both "this" and "that";
+#X msg -1141 46 one;
+#X msg -1239 46 one;
+#X obj -1257 138 kugel;
+#X obj -1257 257 kugel;
+#X connect 0 0 15 0;
+#X connect 1 0 3 0;
+#X connect 3 0 0 0;
+#X connect 3 1 4 0;
+#X connect 3 2 14 0;
+#X connect 4 0 15 1;
+#X connect 5 0 4 0;
+#X connect 6 0 14 1;
+#X connect 7 0 5 0;
+#X connect 12 0 5 0;
+#X connect 13 0 14 1;
+#X connect 14 0 0 0;
+#X connect 15 0 2 0;
+#X restore 315 571 pd several-search-terms;
+#X text 238 109 - 2nd inlet resets the output \, first doesn't;
+#X msg 244 270 a;
+#X msg 345 436 \, b a f 13 \, 13 e f g;
+#X msg 342 524 \, 13 e f g;
+#X msg 352 306 0;
+#X msg 387 306 1;
+#X text 234 251 search term;
+#X msg 277 270 13;
+#X msg 64 222 a b c d \, b a f 13 \, 13 e f g;
+#X text 349 285 desired position of the search term in the list(default:0)
+;
+#X text 48 186 The set of lists you want to explore;
+#X text 343 406 first outlet passes through any list containing the
+search term;
+#X text 344 481 second outlet passes through any list containing the
+search term \, if its position in the list is the one set through the
+third inlet;
+#X text 236 129 - this uses the add2_comma object \, the outlets should
+be connected to a message box \, not a list;
+#X text 53 200 (you can dump a [coll] in here);
+#X text 212 74 notes: -send first the search term (2nd inlet) then
+the set of lists (1st inlet);
+#X obj 283 385 kugel;
+#X connect 2 0 17 1;
+#X connect 5 0 17 2;
+#X connect 6 0 17 2;
+#X connect 8 0 17 1;
+#X connect 9 0 17 0;
+#X connect 17 0 3 0;
+#X connect 17 1 4 0;

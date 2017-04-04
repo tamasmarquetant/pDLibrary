@@ -1,0 +1,34 @@
+#N canvas 485 21 1256 824 10;
+#X obj 408 189 osc~ 220;
+#X floatatom 477 188 5 0 0 0 - - -;
+#X obj 409 440 soundoutput;
+#N canvas 86 276 827 710 REFERENCE 0;
+#X text 114 424 See also:;
+#X text 114 204 Inlet 0: Audio input signal;
+#X text 114 224 Inlet 1: 'pitch <float>' pitch shift amount in semitones.
+;
+#X text 114 244 Outlet 0: Audio output signal;
+#X text 114 524 Tags: Audio;
+#X text 114 304 Description: Pitches incoming audio in semitones according
+to the control value set in Inlet 1 - this effect differs from e_freqshift
+in that it still retains the harmonic structure of the signal.;
+#X text 114 121 Name: e_ableton_pitchshifter;
+#X text 114 141 Summary: mono Shift pitch of incoming signal w/ LFO
+;
+#X coords 0 -1 1 1 450 450 1 100 100;
+#X restore -226 60 pd REFERENCE;
+#X obj -225 18 cnv 15 450 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 526 511 RjDj Library (https://github.com/rjdj/rjlib) - 2011
+;
+#X obj -222 20 e_pitchshift;
+#X text 520 188 Pitch Shift;
+#X obj 97 372 e_freqshift;
+#X floatatom 408 165 5 0 0 0 - - -;
+#X text 53 20 - ableton style pitchshifter;
+#X obj 409 228 e_ableton_pitchshift;
+#X connect 0 0 11 0;
+#X connect 1 0 11 1;
+#X connect 9 0 0 0;
+#X connect 11 0 2 1;
+#X connect 11 0 2 0;

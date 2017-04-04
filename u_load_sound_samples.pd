@@ -1,0 +1,33 @@
+#N canvas 143 662 687 208 10;
+#X obj 66 13 inlet;
+#X obj 66 136 outlet;
+#X text 267 3 abstraction to open up [openpanel] object at sound sample
+locations on harddrive;
+#X msg 133 100 vis 0 \, editmode 0;
+#X msg 133 30 vis 1 \, editmode 0;
+#X text 277 63 inlet: BANG - this will open up the selector pd sub-patch
+automatically;
+#X text 277 93 outlet: SYMBOL - conect it to the [openpanel] object
+;
+#N canvas 939 249 709 370 \$0-filelocations 1;
+#X obj 20 334 outlet;
+#X text 30 3 >>>>> START BY LOADING AN AUDIO SAMPLE INTO MEMORY;
+#X text 30 14 >>>>> CHOOSE A DIRECTORY;
+#X msg 67 54 symbol C:/Users/drot/Documents/CREATION/RECENT/Projects/Pure_Data_Wave/Recordings
+;
+#X msg 67 114 symbol C:/Users/drot/Documents/CREATION;
+#X text 358 114 all sound design folders;
+#X obj 79 291 bng 30 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X text 111 298 reopen @ last [openfile] dialog location;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 6 0 0 0;
+#X restore 66 83 pd \$0-filelocations;
+#X obj 133 53 s pd-\$0-filelocations;
+#X obj 133 123 s pd-\$0-filelocations;
+#X connect 0 0 4 0;
+#X connect 3 0 9 0;
+#X connect 4 0 8 0;
+#X connect 7 0 1 0;
+#X connect 7 0 3 0;

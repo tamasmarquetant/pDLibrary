@@ -1,0 +1,56 @@
+#N canvas 564 135 326 580 10;
+#X msg 97 382 stop;
+#X obj 43 32 inlet;
+#X obj 70 352 t b b;
+#X msg 43 475 0;
+#X msg 100 475 1;
+#X obj 43 322 sel 0;
+#X obj 43 435 del \$2;
+#X obj 109 192 pack f \$1;
+#X obj 82 122 sel 0;
+#X msg 82 152 0;
+#X obj 82 222 pack f \$2;
+#X obj 82 252 outlet fadeMessage;
+#X text 176 193 fade up in \$1;
+#X text 147 223 fade down in \$2;
+#X text 101 436 switch off in \$2;
+#X text 131 476 switch on immediately;
+#X obj 220 32 inlet;
+#X obj 160 32 inlet;
+#X obj 43 62 change -100;
+#X obj 43 92 t f f f;
+#X obj 43 515 outlet delayedSwitch;
+#X obj 62 287 outlet inputSwitch;
+#X text 181 289 unaltered;
+#X text 173 515 delayed switch off;
+#X text 200 252 fade packet;
+#N canvas 922 411 450 300 INSTRUCTIONS 1;
+#X text 47 27 Info: Inlet 0: switch control inlet Inlet 1: fade up
+time (so when it's turned on) Inlet 2: fade down time Outlet 0: delayed
+switch message Outlet 1: input switch message (from inlet 0) for sending
+on to spigot controls Outlet 2: a fade list in the format 'volume timeinms'
+e.g. [1 1000 ( You can set the fade times easily as arguments. Let
+me know what you think! Last edited by Jwif (2011-09-30 20:53:10);
+#X text 47 117 Link: [http://puredata.hurleur.com/sujet-6191-switch-clicks]
+;
+#X restore 23 551 pd INSTRUCTIONS;
+#X connect 0 0 6 0;
+#X connect 1 0 18 0;
+#X connect 2 0 4 0;
+#X connect 2 1 0 0;
+#X connect 3 0 20 0;
+#X connect 4 0 20 0;
+#X connect 5 0 6 0;
+#X connect 5 1 2 0;
+#X connect 6 0 3 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 0;
+#X connect 8 1 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 16 0 10 1;
+#X connect 17 0 7 1;
+#X connect 18 0 19 0;
+#X connect 19 0 5 0;
+#X connect 19 1 21 0;
+#X connect 19 2 8 0;

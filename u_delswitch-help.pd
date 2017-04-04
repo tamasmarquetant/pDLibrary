@@ -1,0 +1,76 @@
+#N canvas 4 22 1072 541 10;
+#N canvas 86 276 827 710 REFERENCE 0;
+#X text 114 484 See also:;
+#X text 114 524 Tags: Control;
+#X text 114 121 Name: u_delswitch;
+#X text 114 141 Summary: utility for easy control of switch-blocked
+patches;
+#X text 114 174 Arg 0: fade in time <float>;
+#X text 114 194 Arg 1: fade out time <float>;
+#X text 114 224 Inlet 0: switch message <bool>;
+#X text 114 244 Inlet 1: fade in time <float>;
+#X text 114 264 Inlet 2: fade out time <float>;
+#X text 114 294 Outlet 0: original switch message;
+#X text 114 314 Outlet 1: delayed switch message;
+#X text 114 334 Outlet 2: fade list 'fade-value fade-time' - dependant
+on settings used.;
+#X text 114 374 Description: Switching patches on and off can result
+in audio clicks if the signal is not faded. This abstraction allows
+an instant switch-on message with a fade-in \, but a delayed switch-off
+message on fade-out.;
+#X text 114 434 The original switch message outlet is useful for turning
+off control messages such as ticks.;
+#X coords 0 -1 1 1 450 450 1 100 100;
+#X restore 19 41 pd REFERENCE;
+#X obj 592 441 switch~;
+#X obj 647 79 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 647 215 5 0 0 0 - - -;
+#X obj 703 49 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 703 185 5 0 0 0 - - -;
+#X obj 592 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 865 180 *~;
+#X obj 880 150 line~;
+#X obj 905 210 env~;
+#X floatatom 905 232 5 0 0 0 - - -;
+#X obj 865 71 osc~ 220;
+#X obj 647 381 s \$0-switch;
+#X obj 703 320 s \$0-fade;
+#X obj 865 210 dac~;
+#X obj 865 93 *~ 0.1;
+#X obj 880 130 r \$0-fade;
+#X text 766 321 fade message for [line];
+#X text 766 341 or [vline~] objects;
+#X text 646 443 delayed switch message outlet;
+#X text 646 463 for a switch~;
+#X obj 602 421 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 657 361 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 503 213 switch control;
+#X text 566 75 fade-in time;
+#X text 617 45 fade-out time;
+#X text 722 381 unaltered switch message \, useful;
+#X text 722 401 for switching off controls (e.g. ticks);
+#X obj 592 260 u_delswitch 100 750;
+#X text 948 131 fade control;
+#X connect 2 0 3 0;
+#X connect 3 0 28 1;
+#X connect 4 0 5 0;
+#X connect 5 0 28 2;
+#X connect 6 0 28 0;
+#X connect 7 0 9 0;
+#X connect 7 0 14 0;
+#X connect 7 0 14 1;
+#X connect 8 0 7 1;
+#X connect 9 0 10 0;
+#X connect 11 0 15 0;
+#X connect 15 0 7 0;
+#X connect 16 0 8 0;
+#X connect 28 0 1 0;
+#X connect 28 0 21 0;
+#X connect 28 1 12 0;
+#X connect 28 1 22 0;
+#X connect 28 2 13 0;
